@@ -36,6 +36,12 @@ export const fetchSubredditData = async (subredditName: string): Promise<RedditD
                     if (res.status === 404) {
                         throw new Error(`Subreddit r/${subredditName} not found. It may be private, banned, or spelled incorrectly.`);
                     }
+                    if (res.status === 403) {
+                        throw new Error(`Access to r/${subredditName} is forbidden. It may be a private community.`);
+                    }
+                    if (res.status >= 500) {
+                        throw new Error('Reddit appears to be experiencing issues. Please try again later.');
+                    }
                     if (!res.ok) {
                         throw new Error(`Failed to fetch ${category} posts for r/${subredditName} (status: ${res.status})`);
                     }
@@ -97,10 +103,10 @@ export const fetchSubredditData = async (subredditName: string): Promise<RedditD
 
     } catch (error) {
         console.error(`Error in fetchSubredditData for r/${subredditName}:`, error);
+        if (error instanceof TypeError && error.message.includes('Failed to fetch')) {
+            throw new Error("Could not connect to Reddit. This might be a network issue or a browser extension (like an ad-blocker) is blocking the request.");
+        }
         if (error instanceof Error) {
-            if (error.message === 'Failed to fetch') {
-                throw new Error("This does not appear to be a valid public subreddit, please double check the name");
-           }
             // Re-throw the specific error message from our fetch checks
             throw error;
         }

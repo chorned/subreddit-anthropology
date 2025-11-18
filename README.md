@@ -1,6 +1,12 @@
 <div align="center">
-<img alt="Preview Image" src="https://github.com/chorned/subreddit-anthropology/blob/main/.github/previewAnthro.png" />
+<img width="1200" height="475" alt="GHBanner" src="https://github.com/user-attachments/assets/0aa67016-6eaf-458a-adb2-6e31a0763ed6" />
 </div>
+
+# Run and deploy your AI Studio app
+
+This contains everything you need to run your app locally.
+
+View your app in AI Studio: https://ai.studio/apps/drive/11NJ5C7udZ1g-KWPiKKAn3M6_SZiWmBn_
 
 ## Run Locally
 

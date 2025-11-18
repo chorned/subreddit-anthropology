@@ -81,7 +81,7 @@ const SubredditInput: React.FC<SubredditInputProps> = ({ onSubmit, isLoading }) 
           onFocus={handleFocus}
           onBlur={() => setTimeout(() => setShowSuggestions(false), 200)}
           disabled={isLoading}
-          className="w-full px-5 py-4 bg-surface border-2 border-transparent rounded-lg text-base landscape:text-lg text-text-main placeholder-text-secondary focus:outline-none focus:border-primary transition-colors"
+          className="w-full px-5 py-4 bg-surface border-2 border-transparent rounded-lg text-base landscape:text-lg text-gray-50 placeholder:text-gray-400 focus:outline-none focus:border-primary transition-colors"
           placeholder={placeholderText}
           aria-label="Subreddit input"
         />
