@@ -1,0 +1,5 @@
+{
+  "name": "Subreddit Anthropology",
+  "description": "An application that analyzes a specific online community (a subreddit) and produces a profound, insightful analysis of the human nature revealed within it.",
+  "requestFramePermissions": []
+}
