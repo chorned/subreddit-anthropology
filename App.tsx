@@ -3,16 +3,17 @@ import { GenerateContentResponse } from "@google/genai";
 import SubredditInput from './components/SubredditInput';
 import LoadingIndicator from './components/LoadingIndicator';
 import AnalysisDisplay from './components/AnalysisDisplay';
+import WelcomeScreen from './components/WelcomeScreen';
 import { normalizeSubredditName } from './utils/subredditParser';
 import { fetchSubredditData } from './services/redditService';
 import { getAnalysisStream } from './services/geminiService';
 import { checkAndRecordRequest } from './utils/rateLimiter';
 import { getCachedAnalysis, setCachedAnalysis, clearAllCache } from './utils/cache';
 
-type ViewState = 'initial' | 'loading' | 'result' | 'error';
+type ViewState = 'welcome' | 'initial' | 'loading' | 'result' | 'error';
 
 const App: React.FC = () => {
-  const [view, setView] = useState<ViewState>('initial');
+  const [view, setView] = useState<ViewState>('welcome');
   const [subreddit, setSubreddit] = useState<string>('');
   const [analysis, setAnalysis] = useState<string>('');
   const [errorMessage, setErrorMessage] = useState<string>('');
@@ -114,8 +115,14 @@ const App: React.FC = () => {
     setIsLoading(false);
   }
 
+  const handleStart = () => {
+    setView('initial');
+  }
+
   const renderContent = () => {
     switch (view) {
+      case 'welcome':
+        return <WelcomeScreen onStart={handleStart} />;
       case 'loading':
         return <LoadingIndicator />;
       case 'result':
@@ -139,7 +146,7 @@ const App: React.FC = () => {
   };
 
   return (
-    <div className="min-h-screen flex flex-col items-center justify-start landscape:justify-center p-4 pt-20 landscape:pt-4 transition-opacity duration-500">
+    <div className="min-h-screen flex flex-col items-center justify-center p-4 transition-opacity duration-500">
       {renderContent()}
     </div>
   );
