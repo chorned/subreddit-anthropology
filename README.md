@@ -1,12 +1,14 @@
 <div align="center">
-<img width="1200" height="475" alt="GHBanner" src="https://github.com/user-attachments/assets/0aa67016-6eaf-458a-adb2-6e31a0763ed6" />
+<img alt="Preview" src="https://github.com/chorned/subreddit-anthropology/blob/main/.github/previewAnthro.png?raw=true" />
 </div>
 
-# Run and deploy your AI Studio app
+# Subreddit Anthropology
 
-This contains everything you need to run your app locally.
+In this prototype I want to imagine the LLM as an outside observer of humanity. The LLM looks at humanity through the lens of different communities, in this case subreddits, and writes its observation.
 
-View your app in AI Studio: https://ai.studio/apps/drive/11NJ5C7udZ1g-KWPiKKAn3M6_SZiWmBn_
+Built with Google AI Studio
+
+https://www.linkedin.com/in/carlhorned/
 
 ## Run Locally
 
